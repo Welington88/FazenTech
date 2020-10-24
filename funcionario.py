@@ -51,5 +51,40 @@ class Funcionario:
 
     def getNascimento(self): 
         return self._nascimento
-    
-    ## metodo crud banco de dados
+    # metodo crud banco de dados
+    def consultar(self):
+        cursor.execute("use fazenda_bd;")
+        cursor.execute("SELECT * FROM `Funcionario`;")
+        dados = cursor.fetchall()
+        for d in dados:
+            print(d[0], d[1])
+
+    def inserir(self):
+        nome = self.getNome()
+        cpf = self.getCPF()
+        salario = float(self.getSalario())
+        cargo = self.getSalario()
+        admissao = self.getAdmissao()
+        nascimento = self.getNascimento()
+        sql = "INSERT INTO `Funcionario`(`nome`, `CPF`, `salario`, `cargo`, `admissao`, `nascimento`) VALUES ('" + nome + "','" + cpf +"'," + salario +", '" + cargo+"', '"+ admissao  +"','" + nascimento + "' );"
+        cursor.execute("use fazenda_bd;")
+        cursor.execute(sql)
+        conexao.commit()
+
+    def alterar(self,cod):
+        nome = self.getNome()
+        cpf = self.getCPF()
+        salario = float(self.getSalario())
+        cargo = self.getSalario()
+        admissao = self.getAdmissao()
+        nascimento = self.getNascimento()
+        sql = "UPDATE `Funcionario` SET `nome`='" + nome + "',`CPF`='" + cpf + "',`salario`=" + salario +",`cargo`='" + cargo + "',`admissao`='" + admissao + "',`nascimento`='" + nascimento + "'WHERE `ID`="+ cod +";"
+        cursor.execute("use fazenda_bd;")
+        cursor.execute(sql)
+        conexao.commit()
+
+    def excluir(self,cod):
+        sql = "DELETE FROM `Funcionario` WHERE `ID`=" + cod +";"
+        cursor.execute("use fazenda_bd;")
+        cursor.execute(sql)
+        conexao.commit()
