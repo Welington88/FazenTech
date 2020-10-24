@@ -1,3 +1,10 @@
+import pymysql
+conexao = pymysql.connect(
+            host='localhost',
+            user='root',
+            passwd='',
+        )
+cursor = conexao.cursor()
 class Varejista:
     ##construtor
     def __init__(self, nome, pf_pj, status):

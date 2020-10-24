@@ -1,3 +1,10 @@
+import pymysql
+conexao = pymysql.connect(
+            host='localhost',
+            user='root',
+            passwd='',
+        )
+cursor = conexao.cursor()
 class Produto:
     ##construtor
     def __init__(self,nome, tipo, qtd_em_estoque, preco):

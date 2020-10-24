@@ -1,3 +1,10 @@
+import pymysql
+conexao = pymysql.connect(
+            host='localhost',
+            user='root',
+            passwd='',
+        )
+cursor = conexao.cursor()
 class ProducaoLeite:
     ##contrutor
     def __init__(self,especie, data_ultima_ordenha, temperatura_do_leite, produtividade_de_cada_quarto, inseminacao, estimativa_do_parto, secagem_esperada, minutos_de_ruminacao_por_dia):

@@ -1,3 +1,10 @@
+import pymysql
+conexao = pymysql.connect(
+            host='localhost',
+            user='root',
+            passwd='',
+        )
+cursor = conexao.cursor()
 class Funcionario:
     ## construtor
     def __init__(self,nome, CPF, salario, cargo, admissao, nascimento):
