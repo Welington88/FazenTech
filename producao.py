@@ -75,12 +75,12 @@ class ProducaoLeite:
     def inserir(self):
         especie = self.getEspecie()
         data_ultima_ordenha = self.getData_ultima_ordenha()
-        temperatura_do_leite = float(self.getTemperatura_do_leite())
-        produtividade_de_cada_quarto = float(self.getProdutividade_de_cada_quarto())
+        temperatura_do_leite = self.getTemperatura_do_leite()
+        produtividade_de_cada_quarto = self.getProdutividade_de_cada_quarto()
         inseminacao = self.getInseminacao()
         estimativa_do_parto = self.getEstimativa_do_parto()
-        secagem_esperada = float(self.getSecagem_esperada())
-        minutos_de_ruminacao_por_dia = float(self.getMinutos_de_ruminacao_por_dia())
+        secagem_esperada = self.getSecagem_esperada()
+        minutos_de_ruminacao_por_dia = self.getMinutos_de_ruminacao_por_dia()
         sql = "INSERT INTO `Producao_Leite`(`especie`, `data_ultima_ordenha`, `temperatura_do_leite`, `produtividade_de_cada_quarto`, `inseminacao`, `estimativa_do_parto`, `secagem_esperada`, `minutos_de_ruminacao_por_dia`) VALUES ('" + especie + "','" + data_ultima_ordenha + "'," + temperatura_do_leite  +  "," + produtividade_de_cada_quarto +",'" + inseminacao +"','" + estimativa_do_parto +"'," + secagem_esperada + ","+ minutos_de_ruminacao_por_dia+");"
         cursor.execute("use fazenda_bd;")
         cursor.execute(sql)
@@ -89,12 +89,12 @@ class ProducaoLeite:
     def alterar(self,cod):
         especie = self.getEspecie()
         data_ultima_ordenha = self.getData_ultima_ordenha()
-        temperatura_do_leite = float(self.getTemperatura_do_leite())
-        produtividade_de_cada_quarto = float(self.getProdutividade_de_cada_quarto())
+        temperatura_do_leite = self.getTemperatura_do_leite()
+        produtividade_de_cada_quarto = self.getProdutividade_de_cada_quarto()
         inseminacao = self.getInseminacao()
         estimativa_do_parto = self.getEstimativa_do_parto()
-        secagem_esperada = float(self.getSecagem_esperada())
-        minutos_de_ruminacao_por_dia = float(self.getMinutos_de_ruminacao_por_dia())
+        secagem_esperada = self.getSecagem_esperada()
+        minutos_de_ruminacao_por_dia = self.getMinutos_de_ruminacao_por_dia()
         sql = "UPDATE `Producao_Leite` SET `especie`='" + especie + "',`data_ultima_ordenha`='" + data_ultima_ordenha + "',`temperatura_do_leite`=" + temperatura_do_leite  +  ",`produtividade_de_cada_quarto`=" + produtividade_de_cada_quarto +",`inseminacao`='" + inseminacao +"',`estimativa_do_parto`='" + estimativa_do_parto +"',`secagem_esperada`=" + secagem_esperada + ",`minutos_de_ruminacao_por_dia`="+ minutos_de_ruminacao_por_dia+" WHERE `ID`=" + cod + ";"
         cursor.execute("use fazenda_bd;")
         cursor.execute(sql)

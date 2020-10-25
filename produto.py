@@ -47,8 +47,8 @@ class Produto:
     def inserir(self):
         nome = self.getNome()
         tipo = self.getTipo()
-        qtd_em_estoque = int(self.getQtd_em_estoque())
-        preco = float(self.getPreco())
+        qtd_em_estoque = self.getQtd_em_estoque()
+        preco = self.getPreco()
         sql = "INSERT INTO `Produto`(`nome`, `tipo`, `qtd_em_estoque`, `preco`) VALUES ('"+nome+"','" + tipo +"',"+ qtd_em_estoque+","+ preco +");"
         cursor.execute("use fazenda_bd;")
         cursor.execute(sql)
@@ -57,8 +57,8 @@ class Produto:
     def alterar(self,cod):
         nome = self.getNome()
         tipo = self.getTipo()
-        qtd_em_estoque = int(self.getQtd_em_estoque())
-        preco = float(self.getPreco())
+        qtd_em_estoque = self.getQtd_em_estoque()
+        preco = self.getPreco()
         sql = "UPDATE `Produto` SET `nome`='" + nome +"',`tipo`='"+ tipo +"',`qtd_em_estoque`="+ qtd_em_estoque+",`preco`="+ preco +" WHERE" + cod +";"
         cursor.execute("use fazenda_bd;")
         cursor.execute(sql)

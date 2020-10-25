@@ -62,7 +62,7 @@ class Funcionario:
     def inserir(self):
         nome = self.getNome()
         cpf = self.getCPF()
-        salario = float(self.getSalario())
+        salario = self.getSalario()
         cargo = self.getSalario()
         admissao = self.getAdmissao()
         nascimento = self.getNascimento()
@@ -74,8 +74,8 @@ class Funcionario:
     def alterar(self,cod):
         nome = self.getNome()
         cpf = self.getCPF()
-        salario = float(self.getSalario())
-        cargo = self.getSalario()
+        salario = self.getSalario()
+        cargo = self.getCargo()
         admissao = self.getAdmissao()
         nascimento = self.getNascimento()
         sql = "UPDATE `Funcionario` SET `nome`='" + nome + "',`CPF`='" + cpf + "',`salario`=" + salario +",`cargo`='" + cargo + "',`admissao`='" + admissao + "',`nascimento`='" + nascimento + "'WHERE `ID`="+ cod +";"
