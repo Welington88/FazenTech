@@ -64,5 +64,44 @@ class ProducaoLeite:
 
     def getMinutos_de_ruminacao_por_dia(self):
         return self._minutos_de_ruminacao_por_dia
-    
     ## metodo crud banco de dados
+    def consultar(self):
+        cursor.execute("use fazenda_bd;")
+        cursor.execute("SELECT * FROM `Producao_Leite`;")
+        dados = cursor.fetchall()
+        for d in dados:
+            print(d[0], d[1],d[2],d[3],d[4],d[6],d[7])
+
+    def inserir(self):
+        especie = self.getEspecie()
+        data_ultima_ordenha = self.getData_ultima_ordenha()
+        temperatura_do_leite = float(self.getTemperatura_do_leite())
+        produtividade_de_cada_quarto = float(self.getProdutividade_de_cada_quarto())
+        inseminacao = self.getInseminacao()
+        estimativa_do_parto = self.getEstimativa_do_parto()
+        secagem_esperada = float(self.getSecagem_esperada())
+        minutos_de_ruminacao_por_dia = float(self.getMinutos_de_ruminacao_por_dia())
+        sql = "INSERT INTO `Producao_Leite`(`especie`, `data_ultima_ordenha`, `temperatura_do_leite`, `produtividade_de_cada_quarto`, `inseminacao`, `estimativa_do_parto`, `secagem_esperada`, `minutos_de_ruminacao_por_dia`) VALUES ('" + especie + "','" + data_ultima_ordenha + "'," + temperatura_do_leite  +  "," + produtividade_de_cada_quarto +",'" + inseminacao +"','" + estimativa_do_parto +"'," + secagem_esperada + ","+ minutos_de_ruminacao_por_dia+");"
+        cursor.execute("use fazenda_bd;")
+        cursor.execute(sql)
+        conexao.commit()
+
+    def alterar(self,cod):
+        especie = self.getEspecie()
+        data_ultima_ordenha = self.getData_ultima_ordenha()
+        temperatura_do_leite = float(self.getTemperatura_do_leite())
+        produtividade_de_cada_quarto = float(self.getProdutividade_de_cada_quarto())
+        inseminacao = self.getInseminacao()
+        estimativa_do_parto = self.getEstimativa_do_parto()
+        secagem_esperada = float(self.getSecagem_esperada())
+        minutos_de_ruminacao_por_dia = float(self.getMinutos_de_ruminacao_por_dia())
+        sql = "UPDATE `Producao_Leite` SET `especie`='" + especie + "',`data_ultima_ordenha`='" + data_ultima_ordenha + "',`temperatura_do_leite`=" + temperatura_do_leite  +  ",`produtividade_de_cada_quarto`=" + produtividade_de_cada_quarto +",`inseminacao`='" + inseminacao +"',`estimativa_do_parto`='" + estimativa_do_parto +"',`secagem_esperada`=" + secagem_esperada + ",`minutos_de_ruminacao_por_dia`="+ minutos_de_ruminacao_por_dia+" WHERE `ID`=" + cod + ";"
+        cursor.execute("use fazenda_bd;")
+        cursor.execute(sql)
+        conexao.commit()
+
+    def excluir(self,cod):
+        sql = "DELETE FROM `Producao_Leite` WHERE `ID`=" + cod +";"
+        cursor.execute("use fazenda_bd;")
+        cursor.execute(sql)
+        conexao.commit()
