@@ -129,7 +129,7 @@ while opcao<6:
             exit()
         # fim produto
     elif opcao==5:
-        opcaoEquip = int(input("Digite a opcao para Varejo/Vendas:\n1 - Inserir\n2 - Alterar\n3 - Excluir\n4 - Consultar\n"))
+        opcaoEquip = int(input("Digite a opcao para Varejo/Vendas:\n1 - Inserir\n2 - Alterar\n3 - Excluir\n4 - Consultar\n5 - Vendas\n"))
         if opcaoEquip == 1:
             nome = input("Digite Nome do Produto:\n")
             pf_pj = input("Digite pf pj do Produto:\n")
@@ -149,6 +149,12 @@ while opcao<6:
         elif opcaoEquip == 4:
             relatorio = varejista.Varejista
             relatorio.consultar(relatorio)
+        elif opcaoEquip == 5:
+            cod_produto = input("Digite Codigo do Produto:\n")
+            cod_varejista = input("Digite Codigo do Varejista:\n")
+            qtd = input("Digite QTD da Venda:\n")
+            obj = varejista.Varejista
+            obj.venda(varejista,cod_produto,cod_varejista,qtd)
         else:
             print("Nenhuma opcao ou opcao invalida escolhida no sistema")
             exit()

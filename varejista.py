@@ -39,7 +39,7 @@ class Varejista:
             print(d[0], d[1])
 
     def venda(self,cod_produto,cod_varejista,qtd):
-        sql = "INSERT INTO `Compra`(`fk_Produto_ID`, `fk_VAREJISTA_ID`, `qtd`) VALUES ('" + cod_produto + "','"+ cod_varejista+"',"+ int(qtd) +");"
+        sql = "INSERT INTO `Compra`(`fk_Produto_ID`, `fk_VAREJISTA_ID`, `qtd`) VALUES ('" + cod_produto + "','"+ cod_varejista+"','"+ qtd +"');"
         cursor.execute("use fazenda_bd;")
         cursor.execute(sql)
         conexao.commit()
